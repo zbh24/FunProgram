@@ -1,0 +1,10 @@
+# 1 "Types.c"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "Types.c"
+# 13 "Types.c"
+int main () {
+
+ struct list_int{ int data; struct list_int *next; } ;int list_X_length(struct list_int) { return 0; } l;
+ struct list_double{ double data; struct list_double *next; } ;int list_X_length(struct list_double) { return 0; } l1;
+}

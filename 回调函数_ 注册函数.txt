@@ -1,0 +1,50 @@
+就是回调函数了，
+
+e.g.:
+
+typedef struct
+{
+  int (* cb)(int, int);
+}thread_ctx;
+
+创建thread的时候： thread_ctx.cb = func_cb;//这里是你需要注册的函数
+
+thread在判断某些条件的时候就可以直接调用
+thread_ctx.cb();
+
+------------------------------------------------------
+
+Windows系统：“不要调用我，请先填写好未来收到某个消息时你的处理流程，在那个消息到来时我会调用你！”
+
+-------------------------------------------------------
+
+#include<iostream>
+using namespace std;
+typedef void (*FunType)(int ,int);
+
+void addfunction(int a,int b)
+{
+    cout<<a<<" + "<<b<<" = "<<a+b<<endl;
+}
+
+void myCallback(FunType pf,int a,int b)
+{
+    pf(a,b);
+}
+
+int main()
+{
+    int a,b;
+    printf("Please input two integers:\n");
+    scanf("%d %d",&a,&b);
+
+    myCallback(addfunction,a,b);
+    return 0; 
+}
+
+------------------------------------------------
+回调函数其实就是实现函数式编程中的函数作为参数传递的作用。
+1.在C语言中，就是回调。
+2.在oo语言中，如java中，虽然没有函数指针，但是有多态，部分实现。
+
+
